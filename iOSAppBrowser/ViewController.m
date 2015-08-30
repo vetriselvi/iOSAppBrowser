@@ -123,6 +123,10 @@
     NSString *URLString = textField.text;
     NSURL *URL = [NSURL URLWithString:URLString];
     
+    NSRange whiteSpaceRange = [URLString rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    if(whiteSpaceRange.location == NSNotFound){ //do URL look-up
+
     if(!URL.scheme){
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@",URLString]];
     }
@@ -130,6 +134,21 @@
         NSURLRequest *URLRequest = [NSURLRequest requestWithURL:URL];
         [self.webView loadRequest:URLRequest];
     }
+    
+    }
+    
+    else{ // do google search instead
+        NSString* URLString3 =
+        [URLString stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+//        [URLString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+
+        NSString *URLString2 = [NSString stringWithFormat:@"http://www.google.com/search?q=%@",URLString3];
+        NSURL *URL2 = [NSURL URLWithString:URLString2];
+        NSURLRequest *URLRequest2 = [NSURLRequest requestWithURL:URL2];
+        [self.webView loadRequest:URLRequest2];
+
+    }
+    
     return NO;
 }
 
