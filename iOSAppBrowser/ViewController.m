@@ -51,7 +51,7 @@
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.textField.placeholder = NSLocalizedString(@"Website URL", "Placeholder for website URL");
+    self.textField.placeholder = NSLocalizedString(@"Google search or look-up the URL of a Website", "Placeholder for website URL");
     self.textField.backgroundColor = [UIColor colorWithWhite:220/224.0f alpha:1];
     self.textField.delegate = self;
     
