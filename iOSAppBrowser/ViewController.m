@@ -31,6 +31,58 @@
     //[self.activity startAnimating];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Hi" message:@"Welcome to GingerBread Browser"
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+
+    
+        //create password protected login
+    
+//    UIAlertController * alert=   [UIAlertController
+//                                  alertControllerWithTitle:@"Authentication Required!"
+//                                  message:@"Enter User Credentials"
+//                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * action) {
+                                                   //Do Some action here
+                                                   
+                                                
+                                                   
+                                                   
+                                               }];
+//
+    
+    
+  
+//    
+//    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+//                                                   handler:^(UIAlertAction * action) {
+//                                                       [alert dismissViewControllerAnimated:YES completion:nil];
+//                                                   }];
+//    
+//    
+//    
+//    
+//    
+    [alert addAction:ok];
+//    [alert addAction:cancel];
+//    
+//    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+//        textField.placeholder = @"Username";
+//    }];
+//    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+//        textField.placeholder = @"Password";
+//        textField.secureTextEntry = YES;
+//    }];
+//    
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+
+
 #pragma mark - UIViewController
 -(void) loadView{
     UIView *mainView = [UIView new];

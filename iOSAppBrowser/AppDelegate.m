@@ -24,6 +24,11 @@
     //ViewController alloc]init and not UIViewController :)
     [self.window makeKeyAndVisible ];
     
+    
+   
+    
+    
+    
     return YES;
 }
 
