@@ -22,7 +22,7 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad { //mostly use viewDidLoad
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // Do any additional setup after loading the view, typically from a nib.
@@ -47,11 +47,11 @@
     //TextField subview
     
     self.textField = [UITextField new];
-    self.textField.keyboardType= UIKeyboardTypeURL;
+//    self.textField.keyboardType= UIKeyboardTypeURL;
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.textField.placeholder = NSLocalizedString(@"Google search or look-up the URL of a Website", "Placeholder for website URL");
+    self.textField.placeholder = NSLocalizedString(@"Google search or look-up the URL of a Website", "Placeholder for web search");
     self.textField.backgroundColor = [UIColor colorWithWhite:220/224.0f alpha:1];
     self.textField.delegate = self;
     
@@ -59,28 +59,32 @@
     self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.backButton setEnabled:NO];
     [self.backButton setTitle:NSLocalizedString(@"Back", @"back command") forState:UIControlStateNormal];
-    [self.backButton addTarget:self.webView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+
+    //example for selector method for UIButton
+//    UIButton *sampleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [sampleButton setTitle:@"SampleTitle" forState:UIControlStateNormal];
+//    [sampleButton addTarget:self action:@selector(_doSomething:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //[self _doSomething:sampleButton]; Action
     
     self.forwardButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.forwardButton setEnabled:NO];
     [self.forwardButton setTitle:NSLocalizedString(@"Forward", @"Forward command") forState:UIControlStateNormal];
-    [self.forwardButton addTarget:self.webView action:@selector(goForward) forControlEvents:UIControlEventTouchUpInside];
 
 
     self.stopButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.stopButton setEnabled:NO];
     [self.stopButton setTitle:NSLocalizedString(@"Stop", @"Stop command") forState:UIControlStateNormal];
-    [self.stopButton addTarget:self.webView action:@selector(stopLoading) forControlEvents:UIControlEventTouchUpInside];
 
     self.reloadButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.reloadButton setEnabled:NO];
     [self.reloadButton setTitle:NSLocalizedString(@"Refresh", @"Reload command") forState:UIControlStateNormal];
-    [self.reloadButton addTarget:self.webView action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
 
-    
+    [self _addButtonsTarget];
     
 //    [mainView addSubview:self.webView];
 //    [mainView addSubview:self.textField];
+    
     //for loop to add all subviews
     for( UIView *subviewToAdd in @[self.webView, self.textField,self.backButton,self.forwardButton,self.stopButton,self.reloadButton]){
         [mainView addSubview:subviewToAdd];
@@ -92,7 +96,7 @@
     [super viewWillLayoutSubviews];
    // self.webView.frame = self.view.frame; // ? - why view and not mainView?
     
-    CGFloat static const itemHeight = 50;
+    CGFloat static const itemHeight = 50; //best to use CGRectGetHeight‚
     CGFloat width = CGRectGetWidth(self.view.bounds);
     CGFloat webViewHeight = CGRectGetHeight(self.view.bounds) - itemHeight - itemHeight;
     CGFloat buttonWidth = CGRectGetWidth(self.view.bounds)/4;
@@ -155,11 +159,11 @@
 #pragma mark - WKWebView
 
 -(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
-    [self updateButtonsAndTitle];
+    [self _updateButtonsAndTitle];
 }
 
 -(void) webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    [self updateButtonsAndTitle];
+    [self _updateButtonsAndTitle];
 }
 
 
@@ -184,18 +188,23 @@
         
         
     }
-    [self updateButtonsAndTitle];
+    [self _updateButtonsAndTitle];
     
 }
+
+//- (void)_doSomething:(UIButton *)sender
+//{
+//    NSLog(@"%@", sender.titleLabel.text); 
+//}
 
 
 
 
 #pragma mark - Miscellaneous
 
--(void) updateButtonsAndTitle{
+-(void) _updateButtonsAndTitle{ //_updateButtonsAndTitle for private methods
     
-    NSString *webViewTitle = [self.webView.title copy];
+    NSString *webViewTitle = [self.webView.title copy]; //?
     
     if ([webViewTitle length]) {
         self.title = webViewTitle;
@@ -213,9 +222,46 @@
     self.backButton.enabled = [self.webView canGoBack];
     self.forwardButton.enabled = [self.webView canGoForward];
     self.stopButton.enabled = self.webView.isLoading;
-    self.reloadButton.enabled = !self.webView.isLoading;
+    self.reloadButton.enabled = !self.webView.isLoading && self.webView.URL; //This change ensures that the web view has an NSURLRequest with accompanying NSURL. Otherwise, there'd be nothing to reload.
     
 }
 
+#pragma mark - remove button targets for old web view and add targets for new webview
+
+-(void) _addButtonsTarget{
+    
+    //remove target of buttons for old webView
+    for (UIButton *button in @[self.backButton,self.forwardButton,self.stopButton,self.reloadButton]) {
+        [button removeTarget:nil action:NULL forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    // add target of buttons for new webView
+    [self.backButton addTarget:self.webView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.forwardButton addTarget:self.webView action:@selector(goForward) forControlEvents:UIControlEventTouchUpInside];
+    [self.stopButton addTarget:self.webView action:@selector(stopLoading) forControlEvents:UIControlEventTouchUpInside];
+    [self.reloadButton addTarget:self.webView action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
+
+
+}
+
+#pragma mark - reset Browser when the app goes to the background
+
+-(void) resetWebView{
+    
+    //1.remove existing webView
+    [self.webView removeFromSuperview];
+    //2.Make a new fresh webView
+    WKWebView *newWebView = [[WKWebView alloc]init];
+    newWebView.navigationDelegate = self;
+    self.webView = newWebView;
+    
+    //3.add buttons to the new webview
+    [self _addButtonsTarget];
+    
+    //4.reset URL text field
+    self.textField.text = nil;
+    //5. update buttons and titles
+    [self _updateButtonsAndTitle];
+}
 
 @end
