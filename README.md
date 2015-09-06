@@ -6,3 +6,6 @@
 
 
 2.Set the passcode to you're desired one at line:63 in viewController.m
+
+
+
