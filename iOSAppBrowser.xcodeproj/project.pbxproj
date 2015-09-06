@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D10682C01B9731A200042217 /* AwesomeFloatingToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D10682BF1B9731A200042217 /* AwesomeFloatingToolbar.m */; };
 		D11063501B904587002E127A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D110634F1B904587002E127A /* main.m */; };
 		D11063531B904587002E127A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D11063521B904587002E127A /* AppDelegate.m */; };
 		D11063561B904587002E127A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11063551B904587002E127A /* ViewController.m */; };
 		D110635B1B904587002E127A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D110635A1B904587002E127A /* Images.xcassets */; };
 		D110635E1B904587002E127A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D110635C1B904587002E127A /* LaunchScreen.xib */; };
 		D110636A1B904588002E127A /* iOSAppBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D11063691B904588002E127A /* iOSAppBrowserTests.m */; };
+		D1D468801B9C0DCC0034661B /* AwesomeFloatingToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D4687F1B9C0DCC0034661B /* AwesomeFloatingToolbar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +27,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D10682BE1B9731A200042217 /* AwesomeFloatingToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwesomeFloatingToolbar.h; path = ../AwesomeFloatingToolbar.h; sourceTree = "<group>"; };
-		D10682BF1B9731A200042217 /* AwesomeFloatingToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwesomeFloatingToolbar.m; path = ../AwesomeFloatingToolbar.m; sourceTree = "<group>"; };
 		D110634A1B904587002E127A /* iOSAppBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAppBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D110634E1B904587002E127A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D110634F1B904587002E127A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,6 +39,8 @@
 		D11063631B904588002E127A /* iOSAppBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSAppBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11063681B904588002E127A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D11063691B904588002E127A /* iOSAppBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSAppBrowserTests.m; sourceTree = "<group>"; };
+		D1D4687E1B9C0DCC0034661B /* AwesomeFloatingToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwesomeFloatingToolbar.h; path = ../AwesomeFloatingToolbar.h; sourceTree = "<group>"; };
+		D1D4687F1B9C0DCC0034661B /* AwesomeFloatingToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwesomeFloatingToolbar.m; path = ../AwesomeFloatingToolbar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +84,8 @@
 			children = (
 				D11063511B904587002E127A /* AppDelegate.h */,
 				D11063521B904587002E127A /* AppDelegate.m */,
-				D10682BE1B9731A200042217 /* AwesomeFloatingToolbar.h */,
-				D10682BF1B9731A200042217 /* AwesomeFloatingToolbar.m */,
+				D1D4687E1B9C0DCC0034661B /* AwesomeFloatingToolbar.h */,
+				D1D4687F1B9C0DCC0034661B /* AwesomeFloatingToolbar.m */,
 				D11063541B904587002E127A /* ViewController.h */,
 				D11063551B904587002E127A /* ViewController.m */,
 				D110635A1B904587002E127A /* Images.xcassets */,
@@ -223,7 +223,7 @@
 				D11063561B904587002E127A /* ViewController.m in Sources */,
 				D11063531B904587002E127A /* AppDelegate.m in Sources */,
 				D11063501B904587002E127A /* main.m in Sources */,
-				D10682C01B9731A200042217 /* AwesomeFloatingToolbar.m in Sources */,
+				D1D468801B9C0DCC0034661B /* AwesomeFloatingToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
