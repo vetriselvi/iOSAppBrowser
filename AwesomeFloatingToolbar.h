@@ -14,6 +14,7 @@
 
 @optional
 - (void) floatingToolbar:(AwesomeFloatingToolbar *)toolbar didSelectButtonWithTitle:(NSString *)title;
+- (void) floatingToolbar:(AwesomeFloatingToolbar *)toolbar didTryToPanWithOffset:(CGPoint)offset;
 
 @end
 
@@ -24,5 +25,6 @@
 -(instancetype) initWithFourTitles: (NSArray *)titles;
 -(void) setEnabled:(BOOL) enabled forButtonWithTitle: (NSString *)title;
 @property(nonatomic,strong) id <AwesomeFloatingToolbarDelegate> delegate;
+
 
 @end

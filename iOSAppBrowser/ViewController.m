@@ -19,6 +19,7 @@
 //@property (strong,nonatomic) UIButton *stopButton;
 //@property (strong,nonatomic) UIButton *reloadButton;
 @property (nonatomic, strong) AwesomeFloatingToolbar *awesomeToolbar;
+
 @property (strong,nonatomic) UIActivityIndicatorView *activity;
 @property (nonatomic,strong)UIAlertAction *okAction;
 
