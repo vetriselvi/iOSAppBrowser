@@ -39,9 +39,15 @@
 //    UINavigationController *navigationVC = (UINavigationController *)self.window.rootViewController;
 //    ViewController *browserVC = [[navigationVC viewControllers] firstObject];
     
+    UIViewController *rootVC = self.window.rootViewController;
+    //isKindOfClass and respondToSelector (when using server data - confirms to a particular method instead of class) method when casting
+    if ([rootVC isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navController = (UINavigationController*)rootVC;
+    }
+    
     ViewController *browserVC = [[(UINavigationController*)self.window.rootViewController viewControllers] firstObject];
     
-    [browserVC resetWebView];
+    [browserVC _resetWebView];
     
     
 }

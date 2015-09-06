@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface ViewController () <WKNavigationDelegate, UITextFieldDelegate>
+@interface ViewController () <UITextFieldDelegate, WKNavigationDelegate>
 @property (strong,nonatomic) WKWebView *webView;
 @property (strong,nonatomic) UITextField *textField;
 @property (strong,nonatomic) UIButton *backButton;
@@ -17,6 +17,7 @@
 @property (strong,nonatomic) UIButton *stopButton;
 @property (strong,nonatomic) UIButton *reloadButton;
 @property (strong,nonatomic) UIActivityIndicatorView *activity;
+@property (nonatomic,strong)UIAlertAction *okAction;
 
 @end
 
@@ -29,58 +30,73 @@
     self.activity = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.activity];
     //[self.activity startAnimating];
+    
+    
+    self.okAction = [UIAlertAction actionWithTitle:@"Proceed!"
+                                             style:UIAlertActionStyleDefault
+                                           handler:nil];
+    self.okAction.enabled = NO;
+    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:@"Enter passcode"
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    [controller addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        
+        textField.delegate = self;
+    }];
+    
+    [controller addAction:self.okAction];
+    [self presentViewController:controller animated:YES completion:nil];
+    
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    NSString *finalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+//    if(textField.text)
+//    {
+//        textField.text = @"remix";
+//    }
+    [self.okAction setEnabled:([finalString isEqualToString: @"0112358"])];
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Hi" message:@"Welcome to GingerBread Browser"
-                                                                       preferredStyle:UIAlertControllerStyleAlert];
 
+
+//METHOD TO ACCESS textfield of UIAlertController
     
-        //create password protected login
-    
-//    UIAlertController * alert=   [UIAlertController
-//                                  alertControllerWithTitle:@"Authentication Required!"
-//                                  message:@"Enter User Credentials"
-//                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction * action) {
-                                                   //Do Some action here
-                                                   
-                                                
-                                                   
-                                                   
-                                               }];
+//    NSString *username = [(UITextField *)[alert.textFields firstObject] text];
+//    NSString *password = [(UITextField *)[alert.textFields objectAtIndex:1] text];
+//    
+//    
 //
+//    if([username isEqualToString:@"amlu"] && [password isEqualToString:@"amlu"]){
+//        //self.ok.enabled = YES;
+//        check.enabled = YES;
+//      //  [self viewDidLoad];
+//        
+//        
+//        
+//        
+//    }
+//    else {
+//        check.enabled = NO;
+//        
+//    }
+   
     
     
-  
-//    
-//    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-//                                                   handler:^(UIAlertAction * action) {
-//                                                       [alert dismissViewControllerAnimated:YES completion:nil];
-//                                                   }];
-//    
-//    
-//    
-//    
-//    
-    [alert addAction:ok];
-//    [alert addAction:cancel];
-//    
-//    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-//        textField.placeholder = @"Username";
-//    }];
-//    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-//        textField.placeholder = @"Password";
-//        textField.secureTextEntry = YES;
-//    }];
-//    
-    [self presentViewController:alert animated:YES completion:nil];
-
+    
 }
+
+
+
 
 
 #pragma mark - UIViewController
@@ -298,7 +314,7 @@
 
 #pragma mark - reset Browser when the app goes to the background
 
--(void) resetWebView{
+-(void) _resetWebView{
     
     //1.remove existing webView
     [self.webView removeFromSuperview];
