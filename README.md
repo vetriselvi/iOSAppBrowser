@@ -7,5 +7,9 @@ To test the application:
 3. Use the passcode : 0112358 to access entry to the Private Browser
 4. Additionaly, change the passcode to you're desired one at line:63 in viewController.m
 
+P.S. Since this app uses HTTP request and if you have updated Xcode recently to 7.1 and if you face any error 
+pertaining to App Transport Security do look into  https://forums.developer.apple.com/thread/3544 and do the edit mentioned in the thread in the Info.plist. This will disable ATS and let you test the app.
+
+
 
 
