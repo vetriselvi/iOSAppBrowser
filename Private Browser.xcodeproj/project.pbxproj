@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		D10682BE1B9731A200042217 /* AwesomeFloatingToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwesomeFloatingToolbar.h; path = ../AwesomeFloatingToolbar.h; sourceTree = "<group>"; };
 		D10682BF1B9731A200042217 /* AwesomeFloatingToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwesomeFloatingToolbar.m; path = ../AwesomeFloatingToolbar.m; sourceTree = "<group>"; };
-		D110634A1B904587002E127A /* iOSAppBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAppBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D110634A1B904587002E127A /* Private Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Private Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D110634E1B904587002E127A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D110634F1B904587002E127A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D11063511B904587002E127A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		D11063551B904587002E127A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D110635A1B904587002E127A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D110635D1B904587002E127A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D11063631B904588002E127A /* iOSAppBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSAppBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D11063631B904588002E127A /* Private BrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Private BrowserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11063681B904588002E127A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D11063691B904588002E127A /* iOSAppBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSAppBrowserTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,8 +73,8 @@
 		D110634B1B904587002E127A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D110634A1B904587002E127A /* iOSAppBrowser.app */,
-				D11063631B904588002E127A /* iOSAppBrowserTests.xctest */,
+				D110634A1B904587002E127A /* Private Browser.app */,
+				D11063631B904588002E127A /* Private BrowserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D11063491B904587002E127A /* iOSAppBrowser */ = {
+		D11063491B904587002E127A /* Private Browser */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D110636D1B904588002E127A /* Build configuration list for PBXNativeTarget "iOSAppBrowser" */;
+			buildConfigurationList = D110636D1B904588002E127A /* Build configuration list for PBXNativeTarget "Private Browser" */;
 			buildPhases = (
 				D11063461B904587002E127A /* Sources */,
 				D11063471B904587002E127A /* Frameworks */,
@@ -136,14 +136,14 @@
 			);
 			dependencies = (
 			);
-			name = iOSAppBrowser;
+			name = "Private Browser";
 			productName = iOSAppBrowser;
-			productReference = D110634A1B904587002E127A /* iOSAppBrowser.app */;
+			productReference = D110634A1B904587002E127A /* Private Browser.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D11063621B904588002E127A /* iOSAppBrowserTests */ = {
+		D11063621B904588002E127A /* Private BrowserTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D11063701B904588002E127A /* Build configuration list for PBXNativeTarget "iOSAppBrowserTests" */;
+			buildConfigurationList = D11063701B904588002E127A /* Build configuration list for PBXNativeTarget "Private BrowserTests" */;
 			buildPhases = (
 				D110635F1B904588002E127A /* Sources */,
 				D11063601B904588002E127A /* Frameworks */,
@@ -154,9 +154,9 @@
 			dependencies = (
 				D11063651B904588002E127A /* PBXTargetDependency */,
 			);
-			name = iOSAppBrowserTests;
+			name = "Private BrowserTests";
 			productName = iOSAppBrowserTests;
-			productReference = D11063631B904588002E127A /* iOSAppBrowserTests.xctest */;
+			productReference = D11063631B904588002E127A /* Private BrowserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D11063451B904587002E127A /* Build configuration list for PBXProject "iOSAppBrowser" */;
+			buildConfigurationList = D11063451B904587002E127A /* Build configuration list for PBXProject "Private Browser" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -190,8 +190,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D11063491B904587002E127A /* iOSAppBrowser */,
-				D11063621B904588002E127A /* iOSAppBrowserTests */,
+				D11063491B904587002E127A /* Private Browser */,
+				D11063621B904588002E127A /* Private BrowserTests */,
 			);
 		};
 /* End PBXProject section */
@@ -240,7 +240,7 @@
 /* Begin PBXTargetDependency section */
 		D11063651B904588002E127A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D11063491B904587002E127A /* iOSAppBrowser */;
+			target = D11063491B904587002E127A /* Private Browser */;
 			targetProxy = D11063641B904588002E127A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -345,7 +345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOSAppBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Private Browser";
 			};
 			name = Debug;
 		};
@@ -355,7 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOSAppBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Private Browser";
 			};
 			name = Release;
 		};
@@ -373,7 +373,7 @@
 				);
 				INFOPLIST_FILE = iOSAppBrowserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Private BrowserTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSAppBrowser.app/iOSAppBrowser";
 			};
 			name = Debug;
@@ -388,7 +388,7 @@
 				);
 				INFOPLIST_FILE = iOSAppBrowserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Private BrowserTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSAppBrowser.app/iOSAppBrowser";
 			};
 			name = Release;
@@ -396,7 +396,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D11063451B904587002E127A /* Build configuration list for PBXProject "iOSAppBrowser" */ = {
+		D11063451B904587002E127A /* Build configuration list for PBXProject "Private Browser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D110636B1B904588002E127A /* Debug */,
@@ -405,7 +405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D110636D1B904588002E127A /* Build configuration list for PBXNativeTarget "iOSAppBrowser" */ = {
+		D110636D1B904588002E127A /* Build configuration list for PBXNativeTarget "Private Browser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D110636E1B904588002E127A /* Debug */,
@@ -414,7 +414,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D11063701B904588002E127A /* Build configuration list for PBXNativeTarget "iOSAppBrowserTests" */ = {
+		D11063701B904588002E127A /* Build configuration list for PBXNativeTarget "Private BrowserTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D11063711B904588002E127A /* Debug */,
